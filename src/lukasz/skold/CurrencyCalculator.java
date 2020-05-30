@@ -30,7 +30,9 @@ public class CurrencyCalculator extends javax.swing.JFrame {
         
         //System.out.print(docParser.arrayOfValues);
         wantedCurrancy.setModel(new javax.swing.DefaultComboBoxModel<>(docParser.arrayOfNames.toArray(new String[0])));
-        wantedCurrancy.setSelectedIndex(0);
+        wantedCurrancy.setSelectedIndex(1);
+        currentCurrency.setModel(new javax.swing.DefaultComboBoxModel<>(docParser.arrayOfNames.toArray(new String[0])));
+        currentCurrency.setSelectedIndex(0);
         
     }
 
@@ -84,10 +86,10 @@ public class CurrencyCalculator extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/icons8_exchange_euro_70px.png")));
         setMinimumSize(new java.awt.Dimension(500, 350));
-        setPreferredSize(new java.awt.Dimension(500, 350));
         setResizable(false);
 
         background.setBackground(new java.awt.Color(255, 255, 255));
+        background.setPreferredSize(new java.awt.Dimension(500, 350));
 
         leftPanel.setBackground(new java.awt.Color(0, 0, 153));
 
@@ -160,7 +162,7 @@ public class CurrencyCalculator extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Your price:");
+        jLabel4.setText("Your amount:");
 
         jLabel5.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -282,16 +284,28 @@ public class CurrencyCalculator extends javax.swing.JFrame {
     private void inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputActionPerformed
          if(isANumber(input.getText())){
             double value = Double.parseDouble(input.getText());
+            int wanted=0;
+            int current=0;
             
             for(int i=0; i<docParser.arrayOfValues.size();i++){
                 if(i == wantedCurrancy.getSelectedIndex()){
-                    double outValue = value*docParser.arrayOfValues.get(i);
+                    wanted = i;
 
-                    System.out.println(outValue);
-                    String outValueS = String.format("%.2f", outValue);
-                    output.setText(outValueS);
                 }
             }  
+            for(int i=0; i<docParser.arrayOfValues.size();i++){
+                if(i == currentCurrency.getSelectedIndex()){
+                    current = i;
+                }
+            }
+            //System.out.println(current);      
+            //System.out.println(wanted);
+            double outValue = value*docParser.arrayOfValues.get(wanted)/docParser.arrayOfValues.get(current);
+            //System.out.println(outValue);      
+
+            String outValueS = String.format("%.2f", outValue);
+            output.setText(outValueS);
+            
         }
     }//GEN-LAST:event_inputActionPerformed
 

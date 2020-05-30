@@ -41,7 +41,10 @@ public class DocumentParser {
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc =  builder.parse(DocumentParser.class.getResource(fileURL).toString());
             NodeList currencyList = doc.getElementsByTagName("Cube");
-            
+           
+            arrayOfNames.add("EUR");
+            arrayOfValues.add(1.0);
+             
             for(int i=0;i<currencyList.getLength();i++){
                 Node c = currencyList.item(i);
                 if(c.getNodeType()==Node.ELEMENT_NODE){
