@@ -78,7 +78,7 @@ public class CurrencyCalculator extends javax.swing.JFrame {
             //System.out.println(outValue);                  
             String outValueS = String.format("%.2f", outValue);
             outValueS = outValueS.replace(',', '.');
-            System.out.println(outValueS);      
+            //System.out.println(outValueS);      
             output.setText(outValueS);
             
         }
@@ -129,7 +129,6 @@ public class CurrencyCalculator extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         rightPanel = new javax.swing.JPanel();
         input = new javax.swing.JTextField();
         output = new javax.swing.JTextField();
@@ -141,7 +140,6 @@ public class CurrencyCalculator extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Currency Calculator");
@@ -155,32 +153,44 @@ public class CurrencyCalculator extends javax.swing.JFrame {
 
         leftPanel.setBackground(new java.awt.Color(0, 0, 153));
         leftPanel.setMinimumSize(new java.awt.Dimension(250, 350));
-        leftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Currency");
         jLabel1.setIconTextGap(0);
-        leftPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 255, -1));
 
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Calculator");
         jLabel2.setIconTextGap(0);
-        leftPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 255, -1));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lukasz/skold/images/icons8_cash_100px_1.png"))); // NOI18N
-        leftPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 255, 145));
 
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lukasz/skold/images/bg.png"))); // NOI18N
-        leftPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 350));
+        javax.swing.GroupLayout leftPanelLayout = new javax.swing.GroupLayout(leftPanel);
+        leftPanel.setLayout(leftPanelLayout);
+        leftPanelLayout.setHorizontalGroup(
+            leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        leftPanelLayout.setVerticalGroup(
+            leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(leftPanelLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(jLabel2))
+            .addGroup(leftPanelLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel1))
+            .addGroup(leftPanelLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         rightPanel.setBackground(new java.awt.Color(0, 102, 204));
-        rightPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         input.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         input.setText("Enter amount");
@@ -190,7 +200,6 @@ public class CurrencyCalculator extends javax.swing.JFrame {
                 inputActionPerformed(evt);
             }
         });
-        rightPanel.add(input, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 73, 91, 34));
 
         output.setEditable(false);
         output.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -199,7 +208,6 @@ public class CurrencyCalculator extends javax.swing.JFrame {
                 outputActionPerformed(evt);
             }
         });
-        rightPanel.add(output, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 148, 91, 34));
 
         currentCurrency.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EUR" }));
         currentCurrency.addActionListener(new java.awt.event.ActionListener() {
@@ -207,48 +215,93 @@ public class CurrencyCalculator extends javax.swing.JFrame {
                 currentCurrencyActionPerformed(evt);
             }
         });
-        rightPanel.add(currentCurrency, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 73, 91, 33));
-        currentCurrency.getAccessibleContext().setAccessibleDescription("");
 
         wantedCurrency.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 wantedCurrencyActionPerformed(evt);
             }
         });
-        rightPanel.add(wantedCurrency, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 148, 91, 33));
 
         jLabel4.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Your amount:");
-        rightPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 51, 91, -1));
 
         jLabel5.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Output:");
-        rightPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 125, 91, -1));
 
         jLabel6.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Your currency:");
-        rightPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 51, 91, -1));
 
         jLabel7.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Wanted currency:");
-        rightPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 125, -1, -1));
 
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Made by");
-        rightPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Lukasz Skold");
-        rightPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lukasz/skold/images/bg1.png"))); // NOI18N
-        rightPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 350));
+        javax.swing.GroupLayout rightPanelLayout = new javax.swing.GroupLayout(rightPanel);
+        rightPanel.setLayout(rightPanelLayout);
+        rightPanelLayout.setHorizontalGroup(
+            rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(rightPanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(rightPanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(currentCurrency, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(rightPanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel7))
+            .addGroup(rightPanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(wantedCurrency, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(rightPanelLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel8))
+            .addGroup(rightPanelLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel9))
+        );
+        rightPanelLayout.setVerticalGroup(
+            rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(rightPanelLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel6))
+                .addGap(6, 6, 6)
+                .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(currentCurrency, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel7))
+                .addGap(7, 7, 7)
+                .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(wantedCurrency, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(68, 68, 68)
+                .addComponent(jLabel8)
+                .addGap(4, 4, 4)
+                .addComponent(jLabel9))
+        );
+
+        currentCurrency.getAccessibleContext().setAccessibleDescription("");
 
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
@@ -257,12 +310,14 @@ public class CurrencyCalculator extends javax.swing.JFrame {
             .addGroup(backgroundLayout.createSequentialGroup()
                 .addComponent(leftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         backgroundLayout.setVerticalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(leftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(backgroundLayout.createSequentialGroup()
+                .addComponent(leftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         rightPanel.getAccessibleContext().setAccessibleDescription("");
@@ -343,8 +398,6 @@ public class CurrencyCalculator extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> currentCurrency;
     private javax.swing.JTextField input;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

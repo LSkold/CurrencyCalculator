@@ -5,6 +5,7 @@
  */
 package lukasz.skold;
 
+import lukasz.skold.CurrencyCalculator;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
