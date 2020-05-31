@@ -5,7 +5,7 @@
  */
 package lukasz.skold;
 
-import java.awt.List;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -29,8 +29,7 @@ public class DocumentParser {
     
     /**
      * Reads xml file and creates arrays
-     */
-    
+     */ 
     public DocumentParser(String fileURL){
         arrayOfNames = new ArrayList<String>();
         arrayOfValues = new ArrayList<Double>();

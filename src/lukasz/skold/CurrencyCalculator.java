@@ -21,16 +21,15 @@ public class CurrencyCalculator extends javax.swing.JFrame {
      */
     public CurrencyCalculator() {
         initComponents();
+        
         String fileURL = "xml/prices.xml";
-        //Toolkit.getDefaultToolkit().getImage(getClass().getResource("images/icons8_exchange_euro_70px.png"))
         docParser = new DocumentParser(fileURL);
         
-        //System.out.print(docParser.arrayOfValues);
+        
         wantedCurrency.setModel(new javax.swing.DefaultComboBoxModel<>(docParser.arrayOfNames.toArray(new String[0])));
         wantedCurrency.setSelectedIndex(1);
         currentCurrency.setModel(new javax.swing.DefaultComboBoxModel<>(docParser.arrayOfNames.toArray(new String[0])));
-        currentCurrency.setSelectedIndex(0);
-        
+        currentCurrency.setSelectedIndex(0);   
     }
 
     /**
@@ -38,8 +37,7 @@ public class CurrencyCalculator extends javax.swing.JFrame {
      * @param string the string we are checking
      * @return true - if string is a number / otherwise false
      */
-    private boolean isANumber(String string){
-        
+    private boolean isANumber(String string){        
         if (string == null) {
             return false;
         }
@@ -50,7 +48,9 @@ public class CurrencyCalculator extends javax.swing.JFrame {
         }
         return true;
     }
-    
+    /**
+     *  Function is started after entering the value to be converted
+     */
     public void enterPressed(){
         
         String caughtText = input.getText();
@@ -72,13 +72,10 @@ public class CurrencyCalculator extends javax.swing.JFrame {
                     current = i;
                 }
             }
-            //System.out.println(current);      
-            //System.out.println(wanted);
-            double outValue = value*docParser.arrayOfValues.get(wanted)/docParser.arrayOfValues.get(current);
-            //System.out.println(outValue);                  
+            double outValue = value*docParser.arrayOfValues.get(wanted)/docParser.arrayOfValues.get(current);    
+            
             String outValueS = String.format("%.2f", outValue);
-            outValueS = outValueS.replace(',', '.');
-            //System.out.println(outValueS);      
+            outValueS = outValueS.replace(',', '.');   
             output.setText(outValueS);
             
         }
